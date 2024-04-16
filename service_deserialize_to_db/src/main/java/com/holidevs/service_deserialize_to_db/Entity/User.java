@@ -1,4 +1,4 @@
-package com.holidevs.service_deserialize_to_db;
+package com.holidevs.service_deserialize_to_db.Entity;
 
 import jakarta.persistence.*;
 
