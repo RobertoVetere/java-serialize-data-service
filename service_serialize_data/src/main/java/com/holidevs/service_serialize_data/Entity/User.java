@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String name;
 
-    private String DNI;
+    private String dni;
 
-    public User(String name, String DNI) {
+    public User(String name, String dni) {
         this.name = name;
-        this.DNI = DNI;
+        this.dni = dni;
     }
 
     public String getName() {
@@ -21,11 +21,11 @@ public class User implements Serializable {
     }
 
     public String getDNI() {
-        return DNI;
+        return dni;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setDNI(String dni) {
+        this.dni = dni;
     }
 
 }

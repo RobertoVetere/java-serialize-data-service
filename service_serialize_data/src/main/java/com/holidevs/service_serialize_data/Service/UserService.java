@@ -48,9 +48,13 @@ public class UserService {
     }
 
     public User createUserWithValidDNI(User user) {
-        if (!validarDNI(user.getDNI())) {
-            throw new IllegalArgumentException("El DNI proporcionado no es válido");
+        try {
+            if (!validarDNI(user.getDNI())) {
+                throw new IllegalArgumentException("El DNI proporcionado no es válido");
+            }
+            return new User(user.getName(), user.getDNI());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Error al crear el usuario: " + e.getMessage());
         }
-        return new User(user.getName(), user.getDNI());
     }
 }
