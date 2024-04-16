@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="servicio_clientes" />
+        <module name="servicio_pedidos" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="service_deserialize_to_db" target="17" />
+      <module name="service_serialize_data" target="17" />
+      <module name="servicio_clientes" target="17" />
+      <module name="servicio_pedidos" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="service_deserialize_to_db" options="-parameters" />
+      <module name="service_serialize_data" options="-parameters" />
+      <module name="servicio_clientes" options="-parameters" />
+      <module name="servicio_pedidos" options="-parameters" />
+    </option>
+  </component>
+</project>
