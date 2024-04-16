@@ -1,5 +1,6 @@
 package com.holidevs.service_serialize_data.Service;
 
+import com.holidevs.service_serialize_data.Entity.User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,5 +45,12 @@ public class UserService {
 
         // Devolver la letra correspondiente al índice calculado
         return letras[indice];
+    }
+
+    public User createUserWithValidDNI(User user) {
+        if (!validarDNI(user.getDNI())) {
+            throw new IllegalArgumentException("El DNI proporcionado no es válido");
+        }
+        return new User(user.getName(), user.getDNI());
     }
 }
