@@ -8,11 +8,11 @@ import java.io.ObjectInputStream;
 @Service
 public class DeserializerService {
 
-    public void deserializeUser(byte[] serializedUser) {
+    public User deserializeUser(byte[] serializedUser) {
         try (ByteArrayInputStream bis = new ByteArrayInputStream(serializedUser);
              ObjectInputStream in = new ObjectInputStream(bis)) {
             User user = (User) in.readObject();
-            // Hacer algo con el objeto deserializado
+            return user;
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException("Error al deserializar el usuario", e);
         }

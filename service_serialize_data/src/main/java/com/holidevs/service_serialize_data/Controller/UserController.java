@@ -1,5 +1,6 @@
 package com.holidevs.service_serialize_data.Controller;
 import com.holidevs.service_serialize_data.Entity.User;
+import com.holidevs.service_serialize_data.Service.ExternalCallService;
 import com.holidevs.service_serialize_data.Service.SerializerService;
 import com.holidevs.service_serialize_data.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,10 @@ public class UserController {
     UserService userService;
 
     @Autowired
-    SerializerService externalService;
+    SerializerService serializerService;
+
+    @Autowired
+    ExternalCallService externalCallService;
 
     @PostMapping("/validate")
     public ResponseEntity<String> createUser(@RequestBody User user) {
@@ -23,7 +27,9 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Se requiere nombre y DNI");
         }
         try {
-            //externalService.callExternalServiceWithUser(userService.createUserWithValidDNI(user));
+            externalCallService.sendSerializedUserToDb
+                    (serializerService.serializeUser
+                            (userService.createUserWithValidDNI(user)));
             return ResponseEntity.status(HttpStatus.ACCEPTED).body("Usuario creado exitosamente");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("DNI inválido");
