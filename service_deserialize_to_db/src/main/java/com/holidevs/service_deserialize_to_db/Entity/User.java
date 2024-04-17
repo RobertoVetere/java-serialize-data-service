@@ -13,7 +13,14 @@ public class User implements Serializable {
 
     private String name;
 
+    private String dni;
+
     public User() {
+    }
+
+    public User(String name, String dni) {
+        this.name = name;
+        this.dni = dni;
     }
 
     public User(String name) {
@@ -26,6 +33,14 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public Long getId() {
